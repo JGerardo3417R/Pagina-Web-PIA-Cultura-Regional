@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manifestaciones culturales - García y Linares</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f4f1eb;
+      --paper:#fffdf8;
+      --ink:#1d2430;
+      --muted:#5f6875;
+      --navy:#18253d;
+      --navy-2:#233555;
+      --gold:#8b6a3d;
+      --gold-2:#b08a57;
+      --line:#e4dccf;
+      --shadow:0 18px 40px rgba(16,24,40,.10);
+      --shadow-soft:0 8px 24px rgba(16,24,40,.08);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(139,106,61,.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(24,37,61,.10), transparent 26%),
+        linear-gradient(180deg, #f8f5ef 0%, #f3efe7 100%);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.72;
+    }
+    .wrap{max-width:1180px;margin:0 auto;padding:28px 18px 64px}
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.55);
+      background:
+        linear-gradient(120deg, rgba(18,28,48,.92), rgba(24,37,61,.84)),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Grutas_de_Garc%C3%ADa_Telef%C3%A9rico.jpg/1200px-Grutas_de_Garc%C3%ADa_Telef%C3%A9rico.jpg') center/cover no-repeat;
+      color:#fff;
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      min-height:540px;
+      padding:38px;
+      display:grid;
+      align-items:end;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,.02) 55%, rgba(0,0,0,.20) 100%);
+      pointer-events:none;
+    }
+    .hero-top{
+      position:absolute;top:28px;left:28px;right:28px;
+      display:flex;justify-content:space-between;gap:18px;align-items:flex-start;z-index:1;
+      flex-wrap:wrap;
+    }
+    .seal{
+      display:flex;gap:14px;align-items:center;
+      background:rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:18px;
+      padding:12px 16px;
+    }
+    .seal .mark{
+      width:48px;height:48px;border-radius:50%;
+      background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,255,255,.75));
+      color:var(--navy);
+      display:grid;place-items:center;
+      font-weight:800;
+      letter-spacing:.5px;
+      box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
+    }
+    .seal .meta{font-size:.92rem;opacity:.95}
+    .pill{
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      border-radius:999px;
+      padding:10px 16px;
+      font-size:.92rem;
+      color:#fff;
+      white-space:nowrap;
+    }
+    .hero-content{position:relative;z-index:1;max-width:920px}
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      font-size:.76rem;
+      color:#e7d6b8;
+      margin:0 0 14px;
+      font-weight:700;
+    }
+    h1,h2,h3{
+      font-family:"Libre Baskerville", Georgia, serif;
+      margin:0;
+      line-height:1.2;
+    }
+    h1{
+      font-size:clamp(2.4rem, 5vw, 4.6rem);
+      max-width:10ch;
+      text-shadow:0 12px 30px rgba(0,0,0,.22);
+    }
+    .subtitle{
+      margin:16px 0 0;
+      max-width:70ch;
+      font-size:1.05rem;
+      color:rgba(255,255,255,.90);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:22px;
+      margin-top:22px;
+    }
+    .card{
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(24,37,61,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+      backdrop-filter: blur(8px);
+      overflow:hidden;
+    }
+    .card .inner{padding:26px}
+    .section{
+      margin-top:26px;
+      background:rgba(255,255,255,.76);
+      border:1px solid rgba(24,37,61,.08);
+      border-radius:28px;
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+    .section-head{
+      padding:24px 26px 14px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(24,37,61,.04), transparent);
+    }
+    .section-head h2{
+      font-size:clamp(1.55rem, 2.8vw, 2.2rem);
+      color:var(--navy);
+      margin-bottom:8px;
+    }
+    .section-head p{margin:0;color:var(--muted)}
+    .section-body{padding:22px 26px 28px}
+    .lead{
+      font-size:1.05rem;
+      color:#273041;
+    }
+    .team{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    .member{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px 12px;
+      background:#fff;
+      min-height:92px;
+    }
+    .member b{display:block;color:var(--navy);margin-bottom:6px}
+    .member span{font-size:.92rem;color:var(--muted)}
+    .photo-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:16px;
+      min-height:100%;
+    }
+    .photo-stack{display:grid;gap:16px}
+    .photo{
+      border-radius:22px;
+      overflow:hidden;
+      position:relative;
+      min-height:210px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(255,255,255,.55);
+      transform:translateZ(0);
+      transition:transform .35s ease, box-shadow .35s ease;
+      background:#e7e2d9;
+    }
+    .photo:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 20px 44px rgba(16,24,40,.15)}
+    .photo img{
+      width:100%;height:100%;object-fit:cover;display:block;
+    }
+    .photo .label{
+      position:absolute;left:14px;bottom:14px;
+      background:rgba(24,37,61,.80);
+      color:#fff;padding:7px 12px;border-radius:999px;
+      font-size:.84rem;border:1px solid rgba(255,255,255,.12)
+    }
+    .columns{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+    .subcard{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+    }
+    .subcard h3{
+      font-size:1.15rem;
+      color:var(--navy);
+      margin-bottom:8px;
+    }
+    .subcard p{margin:0;color:#334155}
+    .bullet{
+      margin:12px 0 0;
+      padding:0 0 0 18px;
+      color:#2d3748;
+    }
+    .bullet li{margin:8px 0}
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+    .quote{
+      border-left:4px solid var(--gold);
+      padding:14px 16px;
+      background:linear-gradient(90deg, rgba(139,106,61,.08), transparent);
+      color:#364152;
+      border-radius:0 18px 18px 0;
+      margin:14px 0;
+    }
+    .timeline{
+      display:grid;
+      gap:14px;
+    }
+    .timeline .item{
+      padding:16px 18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+    }
+    .timeline .item b{display:block;color:var(--navy);margin-bottom:6px}
+    .conclusion{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+    .conclusion .item{
+      padding:18px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+    }
+    .refs{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px 22px;
+    }
+    .refs ol{margin:0;padding-left:20px}
+    .refs li{margin:10px 0;color:#304056}
+    .footer{
+      margin-top:22px;
+      text-align:center;
+      color:#667085;
+      font-size:.93rem;
+    }
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(139,106,61,.10);
+      color:var(--gold);
+      border:1px solid rgba(139,106,61,.20);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:.86rem;
+      font-weight:600;
+      margin:0 8px 8px 0;
+    }
+    .soft{
+      color:var(--muted);
+    }
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+    .center{text-align:center}
+    .bigstat{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px
+    }
+    .stat{
+      background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px
+    }
+    .stat .num{
+      font-family:"Libre Baskerville", Georgia, serif;
+      color:var(--gold);
+      font-size:1.5rem;
+      display:block;
+      margin-bottom:4px;
+    }
+    .divider{height:1px;background:var(--line);margin:18px 0}
+    @media (max-width: 960px){
+      .grid,.split,.columns,.conclusion,.team,.bigstat{grid-template-columns:1fr}
+      .hero{min-height:auto;padding:22px}
+      .hero-top{position:static;margin-bottom:14px}
+      .wrap{padding:14px}
+      .section-head,.section-body,.card .inner{padding:18px}
+      .photo-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero reveal">
+      <div class="hero-top">
+        <div class="seal">
+          <div class="mark">UANL</div>
+          <div class="meta">
+            <div style="font-weight:700">Facultad de Ingeniería Mecánica y Eléctrica</div>
+            <div class="soft">Cultura Regional · AF3 · PIA</div>
+          </div>
+        </div>
+        <div class="pill">Manifestaciones culturales · García y Linares · Nuevo León</div>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">Proyecto integrador de aprendizaje</p>
+        <h1>Manifestaciones culturales</h1>
+        <p class="subtitle">
+          Un recorrido formal y visual por la historia, la arquitectura, la gastronomía, las leyendas, la música y las noticias culturales de dos municipios representativos de Nuevo León.
+        </p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="equipo">
+      <div class="section-head">
+        <h2>Equipo de trabajo</h2>
+        <p>Integrantes y matrícula</p>
+      </div>
+      <div class="section-body">
+        <div class="team">
+          <div class="member"><b>Hugo Isaias Castañeda Alonso</b><span>IAE · 2068478</span></div>
+          <div class="member"><b>Oscar Alejandro Valdez Moreno</b><span>IMA · 2127782</span></div>
+          <div class="member"><b>José Gerardo Ramírez Carrizales</b><span>IMTC · 2011135</span></div>
+          <div class="member"><b>Pedro Damián Argüello Pérez</b><span>IMTC · 2048101</span></div>
+          <div class="member"><b>Diego Ambriz Hernández</b><span>IMTC · 1950250</span></div>
+        </div>
+        <div class="divider"></div>
+        <div class="soft center">San Nicolás de los Garza, a 31 de mayo de 2026</div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="introduccion">
+      <div class="section-head">
+        <h2>Introducción</h2>
+        <p>Contexto general del trabajo</p>
+      </div>
+      <div class="section-body">
+        <p class="lead">
+          Nuevo León posee una riqueza cultural, histórica y artística que se refleja en sus tradiciones, arquitectura, música, festividades y expresiones populares. A través de las manifestaciones culturales presentes en sus municipios, es posible conocer la identidad y el patrimonio que han sido construidos a lo largo de los años por sus habitantes.
+        </p>
+        <p>
+          El objetivo de esta actividad es identificar, analizar y apreciar las manifestaciones culturales de Nuevo León tomando como referencia los municipios de García y Linares. Para ello, se investigan aspectos como su historia, información general, arquitectura, vestimenta tradicional, expresiones culturales, religión, música, leyendas, sitios turísticos, comida típica y noticias culturales y sociales, con la finalidad de comprender cómo estos elementos contribuyen a la formación de la identidad regional y a la preservación de las tradiciones del estado.
+        </p>
+        <p>
+          Mediante este trabajo se busca valorar la diversidad cultural de Nuevo León y reconocer la importancia de conservar y difundir las manifestaciones que representan la historia, las costumbres y el legado de sus comunidades.
+        </p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="region">
+      <div class="section-head">
+        <h2>Región tratada</h2>
+        <p>Municipios seleccionados</p>
+      </div>
+      <div class="section-body split">
+        <div>
+          <p class="lead">
+            La región tratada en este proyecto está compuesta por los municipios de <b>García</b> y <b>Linares</b>, ambos pertenecientes al estado de Nuevo León.
+          </p>
+          <div class="quote">
+            García destaca por sus atractivos naturales, sus leyendas y su crecimiento urbano, mientras que Linares sobresale por su tradición colonial, su gastronomía y su valor como Pueblo Mágico.
+          </div>
+          <div>
+            <span class="tag">Historia</span>
+            <span class="tag">Turismo</span>
+            <span class="tag">Gastronomía</span>
+            <span class="tag">Tradición</span>
+            <span class="tag">Identidad regional</span>
+          </div>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-stack">
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Grutas_de_Garc%C3%ADa_Telef%C3%A9rico.jpg/250px-Grutas_de_Garc%C3%ADa_Telef%C3%A9rico.jpg" alt="Teleférico de las Grutas de García">
+              <div class="label">Grutas de García</div>
+            </div>
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Monta%C3%B1a_de_las_Grutas_de_Garcia.jpg/250px-Monta%C3%B1a_de_las_Grutas_de_Garcia.jpg" alt="Montaña de las Grutas de García">
+              <div class="label">Paisaje de García</div>
+            </div>
+          </div>
+          <div class="photo">
+            <img src="https://sic.gob.mx/images/32666" alt="Catedral de San Felipe Apóstol en Linares">
+            <div class="label">Catedral de San Felipe Apóstol</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="garcia">
+      <div class="section-head">
+        <h2>Municipio de García</h2>
+        <p>Información general y manifestaciones culturales</p>
+      </div>
+      <div class="section-body">
+        <div class="columns">
+          <div class="subcard">
+            <h3>Información general</h3>
+            <p>
+              Originalmente conocido como Pesquería Grande, el municipio recibió posteriormente el nombre de García en honor a Joaquín García. Cuenta con una superficie de 853.2 km² y colinda con Mina, General Escobedo, Hidalgo y Santa Catarina, además del estado de Coahuila.
+            </p>
+            <p>
+              Su primer asentamiento formal se estableció en 1583. El desarrollo agrícola impulsó su crecimiento mediante el cultivo de maíz y trigo. Uno de sus símbolos más reconocidos es el Cerro del Fraile.
+            </p>
+          </div>
+          <div class="subcard">
+            <h3>Datos destacados</h3>
+            <div class="bigstat">
+              <div class="stat"><span class="num">997 km²</span><span>Extensión territorial</span></div>
+              <div class="stat"><span class="num">697 msnm</span><span>Altitud</span></div>
+              <div class="stat"><span class="num">397,205</span><span>Población 2020</span></div>
+            </div>
+            <p class="soft" style="margin-top:12px">La población mostró un crecimiento notable por la urbanización y la expansión industrial y comercial.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="columns">
+          <div class="subcard">
+            <h3>Sitios turísticos y culturales</h3>
+            <ul class="bullet">
+              <li><b>Grutas de García:</b> extensa serie de galerías con gran antigüedad y acceso mediante teleférico.</li>
+              <li><b>Xenpal:</b> espacio de convivencia con animales exóticos y domésticos.</li>
+              <li><b>Museos locales:</b> OJO, Casa Rosa, Museo Icamole y Antiguo Palacio de Gobierno.</li>
+              <li><b>Cueva Ahumada:</b> sitio de arte rupestre con cerca de 8 mil años de antigüedad.</li>
+              <li><b>Cerro del Fraile:</b> elemento natural identitario del municipio.</li>
+            </ul>
+          </div>
+          <div class="subcard">
+            <h3>Música, leyendas y gastronomía</h3>
+            <p><b>Música regional:</b> norteña, corridos, polkas y redovas, con acordeón y bajo sexto como instrumentos principales.</p>
+            <p><b>Leyendas:</b> Cueva de Tlacúatzin, Casa de los Espíritus, Tesoro del Cerro del Cubilete y Llorona del Río Pesquería.</p>
+            <p><b>Comida típica:</b> capirotada, tacos de barbacoa y machacado con huevo.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="split">
+          <div class="subcard">
+            <h3>Noticias culturales y sociales</h3>
+            <p>
+              García ha impulsado proyectos como el festival artístico <b>Full Love MEX</b> y el espacio recreativo y cultural <b>García de Pinta</b>. Estas acciones fortalecen la convivencia social, el arte urbano y la participación comunitaria.
+            </p>
+            <p>
+              En el plano social, el crecimiento urbano ha incrementado la demanda de servicios, movilidad, vivienda y espacios públicos, lo que muestra la transformación constante del municipio.
+            </p>
+          </div>
+          <div class="subcard">
+            <h3>Religión, vestimenta y arquitectura</h3>
+            <p>
+              La vida religiosa se organiza alrededor de templos como Nuestra Señora de Guadalupe y Santo Cristo, que también funcionan como espacios de convivencia comunitaria.
+            </p>
+            <p>
+              La vestimenta típica conserva rasgos del noreste mexicano: en hombres destacan camisa a cuadros, botas vaqueras y sombrero norteño; en mujeres, faldas amplias, bordados y rebozos.
+            </p>
+            <p>
+              Su arquitectura combina casonas antiguas de adobe y piedra con templos coloniales y espacios históricos del centro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="linares">
+      <div class="section-head">
+        <h2>Municipio de Linares</h2>
+        <p>Información general y manifestaciones culturales</p>
+      </div>
+      <div class="section-body">
+        <div class="columns">
+          <div class="subcard">
+            <h3>Información general</h3>
+            <p>
+              Linares se localiza en la región citrícola del estado de Nuevo León y fue fundado el 10 de abril de 1712 bajo el nombre de Villa de San Felipe de Linares. Durante la época colonial fue un importante centro agrícola y ganadero.
+            </p>
+            <p>
+              Posee una superficie aproximada de 2,445 km², con altitud media de 350 metros sobre el nivel del mar. Limita con Hualahuises, Iturbide, Galeana, Tamaulipas, Montemorelos y Rayones.
+            </p>
+          </div>
+          <div class="subcard">
+            <h3>Datos destacados</h3>
+            <div class="bigstat">
+              <div class="stat"><span class="num">2,445 km²</span><span>Extensión territorial</span></div>
+              <div class="stat"><span class="num">84,666</span><span>Población 2020</span></div>
+              <div class="stat"><span class="num">Pueblo Mágico</span><span>Desde 2015</span></div>
+            </div>
+            <p class="soft" style="margin-top:12px">Es reconocido por su producción de dulces de leche y por su patrimonio colonial conservado.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="columns">
+          <div class="subcard">
+            <h3>Sitios turísticos y culturales</h3>
+            <ul class="bullet">
+              <li><b>Centro Histórico de Linares:</b> calles y edificios coloniales con gran valor patrimonial.</li>
+              <li><b>Catedral de San Felipe Apóstol:</b> símbolo religioso e histórico del municipio.</li>
+              <li><b>Museo de Linares:</b> resguarda documentos, fotografías y objetos históricos.</li>
+              <li><b>Paseo de las Glorias:</b> espacio dedicado a la tradición gastronómica local.</li>
+              <li><b>Río Pablillo:</b> atractivo natural para convivencia y recreación.</li>
+            </ul>
+          </div>
+          <div class="subcard">
+            <h3>Música, leyendas y gastronomía</h3>
+            <p><b>Música regional:</b> música norteña, polkas, redovas y corridos con influencia europea del siglo XIX.</p>
+            <p><b>Leyendas:</b> Loma de la Ermita, Mujer de Blanco y relatos de haciendas con tesoros ocultos.</p>
+            <p><b>Comida típica:</b> Glorias de Linares, dulces de leche, cajetas, empalmes, cabrito, carne asada y machacado con huevo.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="split">
+          <div class="subcard">
+            <h3>Noticias culturales y sociales</h3>
+            <p>
+              Linares ha fortalecido su oferta cultural mediante festivales, exposiciones y talleres artísticos. Entre sus iniciativas destaca la conservación del Centro Histórico y la promoción turística como Pueblo Mágico.
+            </p>
+            <p>
+              En lo social, la vida comunitaria sigue muy ligada a la actividad económica local, a la preservación del patrimonio y a la participación de jóvenes y familias en eventos culturales.
+            </p>
+          </div>
+          <div class="subcard">
+            <h3>Religión, vestimenta y arquitectura</h3>
+            <p>
+              La Catedral de San Felipe Apóstol es el centro religioso más representativo. Las festividades patronales reúnen misas, procesiones y actividades comunitarias.
+            </p>
+            <p>
+              La vestimenta tradicional conserva la herencia ganadera y rural: sombrero, camisa vaquera, pantalón de mezclilla y botas en hombres; vestidos folclóricos y faldas amplias en mujeres.
+            </p>
+            <p>
+              Su arquitectura colonial y neoclásica, construida con cantera y mampostería, es una de las mejor conservadas de Nuevo León.
+            </p>
+          </div>
+        </div>
+
+        <div class="photo-grid" style="margin-top:18px">
+          <div class="photo">
+            <img src="https://sic.gob.mx/images/32666" alt="Catedral de San Felipe Apóstol">
+            <div class="label">Centro histórico de Linares</div>
+          </div>
+          <div class="photo-stack">
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Mexico_relief_location_map.jpg/330px-Mexico_relief_location_map.jpg" alt="Mapa de México">
+              <div class="label">Ubicación nacional</div>
+            </div>
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Monta%C3%B1a_de_las_Grutas_de_Garcia.jpg/250px-Monta%C3%B1a_de_las_Grutas_de_Garcia.jpg" alt="Paisaje de Nuevo León">
+              <div class="label">Paisaje regional</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="conclusiones">
+      <div class="section-head">
+        <h2>Conclusiones</h2>
+        <p>Aportación individual de cada integrante</p>
+      </div>
+      <div class="section-body">
+        <div class="conclusion">
+          <div class="item"><b>Hugo Isaias Castañeda Alonso · 2068478</b><p>A través de esta investigación pude conocer mejor la riqueza cultural e histórica de los municipios de García y Linares. Este trabajo me permitió valorar más la diversidad cultural de Nuevo León.</p></div>
+          <div class="item"><b>Oscar Alejandro Valdez Moreno · 2127782</b><p>Este trabajo me ayudó a comprender que muchos municipios de Nuevo León tienen una historia mucho más amplia de lo que imaginaba y me permitió apreciar mejor el pasado del estado.</p></div>
+          <div class="item"><b>José Gerardo Ramírez Carrizales · 2011135</b><p>La investigación me permitió identificar cómo las costumbres, la música, la gastronomía y las festividades siguen siendo parte importante de la vida en García y Linares.</p></div>
+          <div class="item"><b>Pedro Damián Argüello Pérez · 2048101</b><p>Conocer más sobre otros municipios me ayudó a ampliar mi visión del estado y a reconocer que existe una gran riqueza cultural más allá de Monterrey.</p></div>
+          <div class="item"><b>Diego Ambriz Hernández · 1950250</b><p>Descubrir sus sitios turísticos, tradiciones y espacios culturales me hizo darme cuenta de que existen muchos lugares interesantes cerca de Monterrey que vale la pena visitar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="referencias">
+      <div class="section-head">
+        <h2>Referencias bibliográficas</h2>
+        <p>Fuentes consultadas</p>
+      </div>
+      <div class="section-body">
+        <div class="refs">
+          <ol>
+            <li>Viso Bienes Raíces, Historia Municipio de García Nuevo León.</li>
+            <li>Gobierno Municipal de García, Historia.</li>
+            <li>Nueva Escuela Mexicana, Leyendas de García, Nuevo León.</li>
+            <li>Instituto Nacional de Estadística y Geografía (INEGI), Portal Oficial del INEGI.</li>
+            <li>México Desconocido.</li>
+            <li>Gobierno Municipal de Linares, Turismo.</li>
+            <li>Mexicanote, Linares, Pueblo Mágico de Nuevo León.</li>
+          </ol>
+        </div>
+        <p class="footer">Diseño formal con paleta institucional, tipografía serif y animaciones suaves de aparición.</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.14});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
